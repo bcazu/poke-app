@@ -74,10 +74,9 @@ export default {
 }
 .contList .contListPokes{
   grid-area: contListPokes;
-background: blue;
 }
 .contList .contFooter{
   grid-area: contFooter;
-  background: blueviolet;
+  background: #FFFF;
 }
 </style>

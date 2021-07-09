@@ -1,10 +1,10 @@
 <template>
   <footer class="footerPokes">
       <div class="contBtnAll">
-        <button @click="goToAll" >All</button>     
+        <button class="buttonPokeRed buttonAll" @click="goToAll" >All</button>     
       </div>
       <div class="contBtnFavorites">
-        <button @click="goToFavories" >Favorites</button>    
+        <button class="buttonPokeRed buttonFavorite" @click="goToFavories" >Favorites</button>    
       </div>
   </footer>
 </template>
@@ -42,6 +42,22 @@ export default {
   display: grid;
   justify-content: start;
   align-content: center;
+}
+.footerPokes .contBtnAll .buttonAll{
+  height: 44px;
+  width: 275px;
+  background: url('../assets/all.svg')  no-repeat scroll #F22539;
+  background-size: 18px;
+  background-position: 111px center;
+  padding-left: 25px;
+}
+.footerPokes .contBtnFavorites .buttonFavorite{
+  height: 44px;
+  width: 275px;
+  background: url('../assets/star.svg')  no-repeat scroll #F22539;
+  background-size: 18px;
+  background-position: 85px center;
+  padding-left: 25px;
 }
 
 </style>

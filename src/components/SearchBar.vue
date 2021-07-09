@@ -12,6 +12,7 @@ export default {
 
 <style>
 .pokeInputSearch{
+  font-family: Montserrat;
   background: url('../assets/search.svg')  no-repeat scroll  #FFFF;
   background-size: 18px;
   background-position: 15px center;
@@ -19,9 +20,12 @@ export default {
   height: 50px;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.04);
   border-radius: 5px;
+  padding-left: 43px;
+  font-size: 16px;
+  font-weight: 500;
+  outline: none;
 }
 .pokeInputSearch::placeholder {
-  padding-left: 43px;
   font-family: Montserrat;
   font-style: normal;
   font-weight: 500;

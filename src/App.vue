@@ -40,6 +40,7 @@ body{
    font-style: normal;
    font-size: 18px;
    line-height: 22px;
+   cursor: pointer;
 }
 .buttonPokeRed:active {
    background: #C00E20;  
