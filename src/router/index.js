@@ -26,7 +26,7 @@ const routes = [
   {
     path: '/favorites',
     name: 'favorites',
-    component: () => import('../views/ListFavoritesPokes.vue')
+    component: () => import('../views/ListFavoritePokes.vue')
   }
 ]
 
