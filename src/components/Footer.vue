@@ -16,7 +16,7 @@ export default {
       this.$router.push('pokemons');
     },
     goToFavories: function(){
-      this.$router.push('/pokemons/favorites');
+      this.$router.push('favorites');
     },
   }
 }
