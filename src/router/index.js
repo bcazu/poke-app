@@ -1,23 +1,31 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+
 
 Vue.use(VueRouter)
 
 const routes = [
   {
+    path: '*',
+    component: () => import('../views/Error404.vue')
+  },
+  {
     path: '/',
-    name: 'Home',
-    component: Home
+    name: 'home',
+    component: () => import('../views/Home.vue')
+  },
+  {
+    path: '/home',
+    redirect: {name: 'home'},
   },
   {
     path: '/pokemons',
-    name: 'Pokemons',
+    name: 'pokemons',
     component: () => import('../views/ListPokes.vue')
   },
   {
     path: '/pokemons/favorites',
-    name: 'Favorites',
+    name: 'favorites',
     component: () => import('../views/ListFavoritesPokes.vue')
   }
 ]

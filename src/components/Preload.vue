@@ -17,14 +17,14 @@ export default {
 
 <style>
 .preload{
-  background: red;
+  background: #F9F9F9;
   height: 100vh;
   width: 100vw;
   display: grid;
   align-content: center;
   justify-content: center;
   position: absolute;
-
+  z-index: 2;
 }
 .imgPreload{
   animation-name: rotation;

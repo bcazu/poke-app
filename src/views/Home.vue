@@ -22,7 +22,7 @@ export default {
    },
    methods:{
       getStarted: function(){
-         this.$router.push('Pokemons');
+         this.$router.push('pokemons');
       }
    }
 }
@@ -34,6 +34,7 @@ export default {
    display: grid;
    grid-template-columns: 1fr;
    grid-template-rows: 1fr 150px 50px;
+   height: 100vh;
 }
 .home .welcomeDescription{
 }

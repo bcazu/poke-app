@@ -20,11 +20,16 @@ export default {
     margin:0;
     padding:0;
   }
-#app {
+body{
+  background: #F9F9F9;
   font-family: 'Lato';
+}
+#app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  
+;
 }
 </style>
