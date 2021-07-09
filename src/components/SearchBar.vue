@@ -1,5 +1,7 @@
 <template>
-  <p>search bar</p>
+  <div>
+      <input class="pokeInputSearch" type="text" placeholder="Search">
+  </div>
 </template>
 
 <script>
@@ -9,5 +11,22 @@ export default {
 </script>
 
 <style>
-
+.pokeInputSearch{
+  background: url('../assets/search.svg')  no-repeat scroll  #FFFF;
+  background-size: 18px;
+  background-position: 15px center;
+  width: 100%;
+  height: 50px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.04);
+  border-radius: 5px;
+}
+.pokeInputSearch::placeholder {
+  padding-left: 43px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 140%;
+  color: #BFBFBF;
+}
 </style>

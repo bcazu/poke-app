@@ -64,13 +64,13 @@ export default {
   grid-template-areas: ". contSearch ."
                        ". contListPokes ."
                        "contFooter contFooter contFooter";
-  grid-template-columns: 291px 1fr 291px;
-  grid-template-rows: auto 1fr 80px;
+  grid-template-columns: minmax(30px, 291px) 1fr minmax(30px, 291px);
+  grid-template-rows: 125px 1fr 80px;
 }
 .contList .contSearch{
   grid-area: contSearch;
-  background: red;
-  padding: 1em;
+  display: grid;
+  align-content: center;
 }
 .contList .contListPokes{
   grid-area: contListPokes;

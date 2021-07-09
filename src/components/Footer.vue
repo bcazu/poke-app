@@ -24,7 +24,6 @@ export default {
 
 <style>
 .footerPokes{
-  background: red;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-auto-rows: 1fr;
@@ -32,15 +31,14 @@ export default {
   align-content: center;
   height: 100%;
   gap: 20px;
+  box-shadow: 0px -5px 4px rgba(0, 0, 0, 0.05);
 }
 .footerPokes .contBtnAll{
-  background: chartreuse;
   display: grid;
   justify-content: end;
   align-content: center;
 }
 .footerPokes .contBtnFavorites{
-  background: coral;
   display: grid;
   justify-content: start;
   align-content: center;

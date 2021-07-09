@@ -62,7 +62,7 @@ export default {
   grid-template-areas: ". contSearch ."
                        ". contListPokes ."
                        "contFooter contFooter contFooter";
-  grid-template-columns: 291px 1fr 291px;
+  grid-template-columns: minmax(30px, 291px) 1fr minmax(30px, 291px);
   grid-template-rows: auto 1fr 80px;
 }
 .contList .contSearch{
