@@ -21,7 +21,7 @@ export default {
     padding:0;
   }
 #app {
-  font-family: 'Lato Black';
+  font-family: 'Lato';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

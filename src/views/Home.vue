@@ -36,9 +36,7 @@ export default {
    grid-template-rows: 1fr 150px 50px;
 }
 .home .welcomeDescription{
-   background: red;
 }
 .home .getStarted{
-   background: blue;
 }
 </style>
