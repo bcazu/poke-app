@@ -25,38 +25,37 @@ export default {
 <style>
 .footerPokes{
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns:minmax(100px,275px) minmax(100px,275px);;
   grid-auto-rows: 1fr;
-  justify-content: center;
-  align-content: center;
+  justify-content: center;  
+  align-items: center;
   height: 100%;
+  margin: 0 1em;
   gap: 20px;
   box-shadow: 0px -5px 4px rgba(0, 0, 0, 0.05);
 }
 .footerPokes .contBtnAll{
   display: grid;
-  justify-content: end;
-  align-content: center;
+  justify-items: end;
 }
 .footerPokes .contBtnFavorites{
   display: grid;
-  justify-content: start;
-  align-content: center;
+  justify-items: start;
 }
 .footerPokes .contBtnAll .buttonAll{
   height: 44px;
-  width: 275px;
+  width: 100%;
   background: url('../assets/all.svg')  no-repeat scroll #F22539;
   background-size: 18px;
-  background-position: 111px center;
+  background-position: 37% center;
   padding-left: 25px;
 }
 .footerPokes .contBtnFavorites .buttonFavorite{
   height: 44px;
-  width: 275px;
+  width: 100%;
   background: url('../assets/star.svg')  no-repeat scroll #F22539;
   background-size: 18px;
-  background-position: 85px center;
+  background-position: 25% center;
   padding-left: 25px;
 }
 

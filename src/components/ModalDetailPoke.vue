@@ -8,6 +8,7 @@
                 <div class="closeModal">
                   <img @click="close" src="../assets/closeModal.svg" alt="close modal">
                 </div>
+                <img class='imgPoke' src="../assets/examplePoke.svg" alt="">
               </div>
               <div class="modal-body">
                 <div class="descriptionPoke">
@@ -61,27 +62,33 @@ export default {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  display: table;
+  display: grid;
+  align-items: center;
   transition: opacity 0.3s ease;
 }
 
 .modal-wrapper {
-  display: table-cell;
-  vertical-align: middle;
+  display: grid;
+  grid-template-areas: ". cont ."
+                       ". cont ."
+                       ". cont .";
+  grid-template-columns: minmax(30px, 1fr) minmax(300px, 570px)  minmax(30px, 1fr);
+  justify-content: center;
+  align-items: center;
 }
 
 .modal-container {
+  width: 100%;
+  grid-area: cont;
   display: grid;
-  grid-template-columns: 1fr ;
-  grid-template-rows: 220px 1fr 87px;
-  width: 55vw;
-  height: 68vh;
+  grid-template-columns: 1fr;
+  grid-template-rows: minmax(200px,220px) 1fr 80px;
   margin: 0px auto;
   background-color: #fff;
   border-radius: 2px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
   transition: all 0.3s ease;
-  font-family: Helvetica, Arial, sans-serif;
+  grid-gap: 0 / 0;
 }
 .closeModal{
   text-align: right;
@@ -91,12 +98,15 @@ export default {
 }
 
 .modal-header{
-  background: url('../assets/layerPickture.svg') no-repeat transparent;
+  background: url('../assets/layerPickture.svg') no-repeat aqua;
   background-size: cover;
   background-position: center;
 }
+.imgPoke{
+  margin-top: -15px
+}
 .modal-body{
- padding: 1em;
+ padding: 0 1em;
 }
 .modal-body .descriptionPoke{
   display: grid;
@@ -150,14 +160,6 @@ export default {
   display: grid;
   justify-items: end;
   align-items: center;
-}
-
-.modal-body {
-  margin: 20px 0;
-}
-
-.modal-default-button {
-  float: right;
 }
 
 /*

@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="item" @click="openModalPokes()">
-      <div class="name">
+    <div class="item" >
+      <div class="name" @click="openModalPokes()">
         <p v-text="item.name"></p>
       </div>
       <div class="addFavorite">
@@ -65,11 +65,13 @@ export default {
   color: #353535;
   margin-left: 20px;
   text-transform: capitalize;
+  cursor: pointer;
 }
 .item .addFavorite{
   display: grid;
   align-content: center;
   justify-content: center;
+  cursor: pointer;
 }
 .item .addFavorite .wrapperFavoriteStar{
   background: #F5F5F5;  
