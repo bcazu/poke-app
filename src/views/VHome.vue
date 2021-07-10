@@ -40,7 +40,7 @@ export default {
    grid-template-areas: ". contImgWelcome ."
                         ". welcomeDescription ."
                         "getStarted getStarted getStarted";
-   grid-template-columns: minmax(30px, 291px) 1fr minmax(30px, 291px);
+   grid-template-columns:  minmax(30px, 1fr) minmax(315px, 570px)  minmax(30px, 1fr);
    grid-template-rows: auto 1fr 150px;
    height: 100vh;
 }

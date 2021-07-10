@@ -1,18 +1,23 @@
 <template>
   <div class="subContainerPokes">
-    <div class="containerListPokes">
-      <ListItemPke v-for="poke in listPokemons" :key="poke.name" :item="poke" />
-    </div>
+      <list-item-poke  v-for="poke in listPokemons" :key="poke.name" :item="poke"  />
+      
   </div>
 </template>
 
 <script>
-import ListItemPke from '@/components/ListItemPoke.vue'
+import ListItemPoke from './ListItemPoke.vue'
 export default {
   name: 'ListPokes',
   components: {
-    ListItemPke
+    ListItemPoke
   },
+  data(){
+    return{
+        
+    }
+  },
+  
   computed:{
     listPokemons(){
       return this.$store.state.listPokes
@@ -23,10 +28,5 @@ export default {
 
 <style>
 
-.subContainerPokes .containerFooter{
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100vw;
-}
+
 </style>

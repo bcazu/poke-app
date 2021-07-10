@@ -48,8 +48,7 @@ export default {
     getPokes: async function(){
         try{
           this.$store.commit('getPokemons');
-          console.log('pokes',this.$store.state.listPokes)
-          if(this.$store.state.listPokes.length == undefined){
+          if(this.$store.state.listPokes.length == 0){
             this.$router.push('pokemons/not-found')
             this.currentView = this.$router.history.current.name;
           }
@@ -74,7 +73,7 @@ export default {
   grid-template-areas: ". containerSearchPokes ."
                        ". containerView ."
                        "containerFooter containerFooter containerFooter";
-  grid-template-columns: minmax(30px, 291px) 1fr minmax(30px, 291px);
+  grid-template-columns: minmax(30px, 1fr) minmax(300px, 570px)  minmax(30px, 1fr);
   grid-template-rows: 125px 1fr 80px;
 }
 .containerPokes .containerSearchPokes{
