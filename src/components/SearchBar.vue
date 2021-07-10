@@ -16,7 +16,7 @@ export default {
   background: url('../assets/search.svg')  no-repeat scroll  #FFFF;
   background-size: 18px;
   background-position: 15px center;
-  width: 100%;
+  width: 93%;
   height: 50px;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.04);
   border-radius: 5px;

@@ -7,12 +7,12 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '*',
-    component: () => import('../views/Error404.vue')
+    component: () => import('../views/VError404.vue')
   },
   {
     path: '/',
     name: 'home',
-    component: () => import('../views/Home.vue')
+    component: () => import('../views/VHome.vue')
   },
   {
     path: '/home',
@@ -21,13 +21,23 @@ const routes = [
   {
     path: '/pokemons',
     name: 'pokemons',
-    component: () => import('../views/ListPokes.vue')
+    component: () => import('../views/VPokes.vue'),
+    children: [
+      {
+        path: '',
+        component: () => import('../components/ListPokes.vue'),
+        name: 'listPokemons'
+      },
+      {
+        path: 'not-found',
+        name: 'notFound',
+        component: () => import('../components/NotFound.vue'),
+      },
+      
+    ]
   },
-  {
-    path: '/favorites',
-    name: 'favorites',
-    component: () => import('../views/ListFavoritePokes.vue')
-  }
+ 
+  
 ]
 
 const router = new VueRouter({

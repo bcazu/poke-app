@@ -10,7 +10,7 @@
 export default {
   methods:{
     goBackHome: function(){
-      this.$router.push('/');
+      this.$router.push('/pokemons');
     }
   }
 }
