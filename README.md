@@ -14,7 +14,6 @@ Para la programación me apoyé de:
 
 ### Por último, espero les agrade mi trabajo y agradezco la oportunidad de postularme a su vacante. Disfruté mucho de esta prueba.
 
--npm install --save vue-clipboard2 para copiar texto en portapapeles
 ## Project setup
 ```
 npm install
