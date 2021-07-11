@@ -1,6 +1,6 @@
 <template>
   <div>
-      <input class="pokeInputSearch" type="text" placeholder="Search">
+      <input class="pokeInputSearch" v-model="$store.state.searchNamePoke"   type="text" placeholder="Search">
   </div>
 </template>
 

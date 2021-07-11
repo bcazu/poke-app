@@ -7,7 +7,7 @@
       <div class="containerView">
         <router-view></router-view>
       </div>
-     <div class="containerFooter" v-if="currentView != 'notFound'">
+     <div class="containerFooter" v-if="$store.state.beResults">
         <Footer/>
     </div>
   </div>
@@ -20,8 +20,7 @@ import SearchBar from '@/components/SearchBar.vue'
 // import PokeList from '@/components/PokeList.vue'
 // import NotFound from '@/components/NotFound.vue'
 import Footer from '@/components/Footer.vue'
-
-
+const axios = require('axios');
 export default {
   name: 'Pokemons',
   components: {
@@ -32,7 +31,7 @@ export default {
     // NotFound,
   },
   mounted(){
-    this.currentView = this.$router.history.current.name;
+   
     setTimeout(()=>{
       this.getPokes();
     },1000)
@@ -41,17 +40,17 @@ export default {
     return {
       preloadVisible: true,
       listPokes: [],
-      currentView: ""
     }
   },
   methods:{
     getPokes: async function(){
         try{
-          this.$store.commit('getPokemons');
-          if(this.$store.state.listPokes.length == 0){
-            this.$router.push('pokemons/not-found')
-            this.currentView = this.$router.history.current.name;
-          }
+          let result = await axios.get('https://pokeapi.co/api/v2/pokemon');
+          result = result.data.results.map((item)=>{
+              item.favorite = false;
+              return item;
+          })
+          this.$store.commit('getPokemons',result);
           this.preloadVisible = false;
         }catch(err){
           console.log("Error: ", err);
@@ -60,9 +59,7 @@ export default {
     }
   },
   camputed:{
-    pokes(){
-      return 
-    }
+    
   }
 }
 </script>

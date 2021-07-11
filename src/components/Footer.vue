@@ -1,28 +1,47 @@
 <template>
   <footer class="footerPokes">
       <div class="contBtnAll">
-        <button class="buttonPokeRed buttonAll" @click="goToAll" >All</button>     
+        <button class="buttonPokeRed buttonAll" :class="{'buttonSelectViewOff': $store.state.view != 'all'}" @click="goToAll" >All</button>     
       </div>
       <div class="contBtnFavorites">
-        <button class="buttonPokeRed buttonFavorite" @click="goToFavories" >Favorites</button>    
+        <button class="buttonPokeRed buttonFavorite" :class="{'buttonSelectViewOff': $store.state.view != 'favorite'}" @click="goToFavories" >Favorites</button>    
       </div>
   </footer>
 </template>
 
 <script>
+const axios = require('axios');
+
 export default {
   methods:{
-    goToAll: function(){
-      this.$router.push('pokemons');
+    goToAll: async function(){
+      this.$store.commit('changeView','all');
+      try{
+          let result = await axios.get('https://pokeapi.co/api/v2/pokemon');
+          result = result.data.results.map((item)=>{
+              item.favorite = false;
+              return item;
+          })
+          this.$store.commit('getPokemons',result);
+          this.preloadVisible = false;
+      }catch(err){
+        console.log("Error: ", err);
+        this.preloadVisible = false;
+      }
     },
     goToFavories: function(){
-      this.$router.push('favorites');
+      this.$store.commit('changeView','favorite');
+      const results = JSON.parse(localStorage.getItem('listFavoritePokes'));
+      this.$store.commit('updateListPokes', results)
     },
   }
 }
 </script>
 
 <style>
+.buttonSelectViewOff{
+  background-color: #BFBFBF !important;
+}
 .footerPokes{
   display: grid;
   grid-template-columns:minmax(100px,275px) minmax(100px,275px);;

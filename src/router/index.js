@@ -27,13 +27,7 @@ const routes = [
         path: '',
         component: () => import('../components/ListPokes.vue'),
         name: 'listPokemons'
-      },
-      {
-        path: 'not-found',
-        name: 'notFound',
-        component: () => import('../components/NotFound.vue'),
-      },
-      
+      }      
     ]
   },
  

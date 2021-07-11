@@ -1,8 +1,12 @@
 <template>
-  <div class="contNotFound">
+  <div class="contNotFound" v-if="$store.state.view == 'all'">
     <h1>Uh-oh!</h1>
     <p>You look lost on your journey!</p>
     <button class="buttonPokeRed buttonGoBack" @click="goBackHome">Go back home</button>
+  </div>
+  <div v-else class="contNotFound">
+    <h1>Uh-oh!</h1>
+    <p>You don't have favorite pokes yet</p>
   </div>
 </template>
 
@@ -10,7 +14,7 @@
 export default {
   methods:{
     goBackHome: function(){
-      this.$router.push('/pokemons');
+      this.$store.commit('resetSearchName');
     }
   }
 }

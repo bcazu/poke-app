@@ -2,15 +2,33 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 
 Vue.use(Vuex)
-const axios = require('axios');
+
 export default new Vuex.Store({
   state: {
-    listPokes: []
+    listPokes: [],
+    searchNamePoke: "",
+    pokeSelected: {},
+    view: "all",
+    beResults: true
   },
   mutations: {
-    async getPokemons(state){
-      const result = await axios.get('https://pokeapi.co/api/v2/pokemon');
-      state.listPokes = result.data.results;
+     getPokemons(state, list){
+      state.listPokes = list;
+    },
+    updateSearchNamePoke(state, newName){
+      state.searchNamePoke = newName;
+    },
+    resetSearchName(state){
+      state.searchNamePoke = "";
+    },
+    changeView(state,view){
+      state.view = view;
+    },
+    updateBeResults(state,value){
+      state.beResults = value;
+    },
+    updateListPokes(state, newList){
+      state.listPokes = newList;
     }
   },
   actions: {

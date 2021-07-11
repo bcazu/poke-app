@@ -26,7 +26,7 @@
               </div>
               <div class="modal-footer">
                 <div class="share">
-                  <button class="buttonPokeRed shareToMyFriend">Shre to my friend</button>
+                  <button class="buttonPokeRed shareToMyFriend">Share to my friends</button>
                 </div>
                 <div class="favorite">
                   <div class="wrapperFavoriteStar">
