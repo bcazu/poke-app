@@ -19,7 +19,7 @@
 
 <script>
 import ModalDetailPoke from './ModalDetailPoke.vue'
-
+const axios = require('axios');
 export default {
   name: 'ListItemPoke',
   components: {
@@ -30,11 +30,37 @@ export default {
   },
   data(){
     return {
-      showModal: false
+      showModal: false,
+      poke:{
+        id: null,
+        name: null,
+        weight: null,
+        height: null,
+        types: null,
+        img: null
+      }
     }
   },
   methods:{
-    openModalPokes(){
+    async openModalPokes(){
+      const resultPoke = await axios.get(`https://pokeapi.co/api/v2/pokemon/${this.item.name}`);
+      console.log(resultPoke)
+      const resultImage = await axios.get(resultPoke.data.forms[0].url);
+      const {id,name,weight,height,types} = resultPoke.data;
+      const img = resultImage.data.sprites.front_default;
+      this.poke.id = id;
+      this.poke.name = name;
+      this.poke.weight = weight;
+      this.poke.height = height;
+      this.poke.types = types.map((type)=>{
+        let res = type.type.name
+        return res
+      }).join(', ');
+      console.log(this.poke.types )
+      this.poke.img = img;
+      this.poke.favorite = this.item.favorite;
+      this.$store.commit('setPokeSelected', this.poke);
+
       this.showModal=true
     },
     closeModalPokes(){

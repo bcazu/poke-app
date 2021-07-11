@@ -29,6 +29,9 @@ export default new Vuex.Store({
     },
     updateListPokes(state, newList){
       state.listPokes = newList;
+    },
+    setPokeSelected(state,poke){
+      state.pokeSelected = poke
     }
   },
   actions: {

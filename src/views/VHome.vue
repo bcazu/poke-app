@@ -28,6 +28,7 @@ export default {
    methods:{
       getStarted: function(){
          this.$router.push('pokemons');
+         this.$store.commit('changeView','all');
       }
    }
 }

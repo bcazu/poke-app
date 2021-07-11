@@ -15,6 +15,8 @@ export default {
   methods:{
     goBackHome: function(){
       this.$store.commit('resetSearchName');
+      this.$store.commit('changeView','all');
+      this.$store.commit('updateBeResults',true)
     }
   }
 }

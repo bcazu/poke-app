@@ -8,30 +8,35 @@
                 <div class="closeModal">
                   <img @click="close" src="../assets/closeModal.svg" alt="close modal">
                 </div>
-                <img class='imgPoke' src="../assets/examplePoke.svg" alt="">
+                <img class='imgPoke' :src="pokeSelected.img" alt="">
               </div>
               <div class="modal-body">
                 <div class="descriptionPoke">
-                  <p class="tag">Name: <span class="description">Squirtle</span></p>
+                  <p class="tag">Name: <span class="description" v-text="pokeSelected.name"></span></p>
                 </div>
                 <div class="descriptionPoke">
-                  <p class="tag">Weight: <span class="description">20</span></p>
+                  <p class="tag">Weight: <span class="description" v-text="pokeSelected.weight"></span></p>
                 </div>
                 <div class="descriptionPoke">
-                  <p class="tag">Height: <span class="description">18</span></p>
+                  <p class="tag">Height: <span class="description" v-text="pokeSelected.height"></span></p>
                 </div>
                 <div class="descriptionPoke">
-                  <p class="tag">Types: <span class="description">Normal, Water</span></p>
+                  <p class="tag">Types: <span class="description" v-text="pokeSelected.types"></span></p>
                 </div>
               </div>
               <div class="modal-footer">
                 <div class="share">
-                  <button class="buttonPokeRed shareToMyFriend">Share to my friends</button>
+                  <button 
+                    class="buttonPokeRed shareToMyFriend" 
+                    v-clipboard:copy="formatInfo()"
+                    v-clipboard:success="onCopy"
+                    v-clipboard:error="onError"
+                  >Share to my friends</button>
                 </div>
                 <div class="favorite">
                   <div class="wrapperFavoriteStar">
                     <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path  fill="#ECA539"  d="M9.81981 0.765294L7.13459 6.45365L1.12675 7.36877C0.0493653 7.53204 -0.38241 8.91975 0.398897 9.71458L4.74543 14.1398L3.7174 20.391C3.53235 21.5209 4.67141 22.3673 5.62543 21.8389L11 18.8873L16.3746 21.8389C17.3286 22.363 18.4677 21.5209 18.2826 20.391L17.2546 14.1398L21.6011 9.71458C22.3824 8.91975 21.9506 7.53204 20.8733 7.36877L14.8654 6.45365L12.1802 0.765294C11.6991 -0.248643 10.305 -0.261532 9.81981 0.765294Z" />
+                      <path :class="{'starFavorite': pokeSelected.favorite,'starDefault': !pokeSelected.favorite}"  d="M9.81981 0.765294L7.13459 6.45365L1.12675 7.36877C0.0493653 7.53204 -0.38241 8.91975 0.398897 9.71458L4.74543 14.1398L3.7174 20.391C3.53235 21.5209 4.67141 22.3673 5.62543 21.8389L11 18.8873L16.3746 21.8389C17.3286 22.363 18.4677 21.5209 18.2826 20.391L17.2546 14.1398L21.6011 9.71458C22.3824 8.91975 21.9506 7.53204 20.8733 7.36877L14.8654 6.45365L12.1802 0.765294C11.6991 -0.248643 10.305 -0.261532 9.81981 0.765294Z" />
                     </svg>
                   </div>
                 </div>
@@ -48,12 +53,38 @@ export default {
   methods:{
     close(){
       this.$emit('close');
+    },
+    formatInfo(){
+      return `
+              Name: ${this.pokeSelected.name},
+              Weight: ${this.pokeSelected.weight},
+              Height: ${this.pokeSelected.height},
+              Types: ${this.pokeSelected.types},
+              `
+    },
+    onCopy(e) {
+        alert('Acabas de copiar el siguiente texto en el portapapeles: ' + e.text)
+    },
+    onError(e) {
+        alert('No se pudo copiar el texto al portapapeles')
+        console.log(e);
+    }
+  },
+  computed:{
+    pokeSelected(){
+      return this.$store.state.pokeSelected;
     }
   }
 }
 </script>
 
 <style scoped>
+.starFavorite{
+  fill: #ECA539
+}
+.starDefault{
+  fill: #BFBFBF
+}
 .modal-mask {
   position: fixed;
   z-index: 3;
@@ -98,12 +129,12 @@ export default {
 }
 
 .modal-header{
-  background: url('../assets/layerPickture.svg') no-repeat aqua;
+  background: url('../assets/layerPickture.svg') no-repeat transparent;
   background-size: cover;
   background-position: center;
 }
 .imgPoke{
-  margin-top: -15px
+  width: 190px;
 }
 .modal-body{
  padding: 0 1em;
@@ -129,6 +160,7 @@ export default {
   font-size: 18px;
   line-height: 150%;
   color: #5E5E5E;
+  text-transform: capitalize;
 }
 .shareToMyFriend{
   padding: 11px 20px;
