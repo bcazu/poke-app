@@ -11,6 +11,8 @@ Para la programación me apoyé de:
 - vue-clipboard2: Una librería muy útil para manejar la copia de información en el portapapeles
 - Para trabajar un modal lo más limpio posible y personalizable, usé el snippet generado por vuejs: https://codesandbox.io/s/github/vuejs/vuejs.org/tree/master/src/v2/examples/vue-20-modal-component?from-embed=&file=/index.html
 - El estandar para identificar las vistas principales está dado por el prefijo V (VHome, VPokes...)
+  
+## MCP
 
 ### Por último, espero les agrade mi trabajo y agradezco la oportunidad de postularme a su vacante. Disfruté mucho de esta prueba.
 
